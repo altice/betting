@@ -1,26 +1,18 @@
 <h1>Listing games</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>Visiting</th>
-      <th>Home</th>
-      <th>Line</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @games.each do |game| %>
-      <tr>
+<% @games.each do |game| %>
+  <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+    <td class= "list_description">
+      <dl>
         <td><%= game.visiting %></td>
         <td><%= game.home %></td>
         <td><%= game.line %></td>
-        <td><%= link_to 'Show', game %></td>
-        <td><%= link_to 'Edit', edit_game_path(game) %></td>
-        <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class = "list_actions">
+        <%= link_to 'Show', game %><br/>
+        <%= link_to 'Edit', edit_game_path(game) %><br/>
+        <%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </td>
       </tr>
     <% end %>
   </tbody>

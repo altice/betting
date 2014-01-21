@@ -3,6 +3,11 @@ require 'test_helper'
 class GamesControllerTest < ActionController::TestCase
   setup do
     @game = games(:one)
+    @update = {
+      visiting: 'Bulls'
+      home: 'Heat'
+      line: 7
+    }
   end
 
   test "should get index" do
@@ -18,7 +23,7 @@ class GamesControllerTest < ActionController::TestCase
 
   test "should create game" do
     assert_difference('Game.count') do
-      post :create, game: { home: @game.home, line: @game.line, visiting: @game.visiting }
+      post :create, game: @update
     end
 
     assert_redirected_to game_path(assigns(:game))
@@ -35,7 +40,7 @@ class GamesControllerTest < ActionController::TestCase
   end
 
   test "should update game" do
-    patch :update, id: @game, game: { home: @game.home, line: @game.line, visiting: @game.visiting }
+    patch :update, id: @game, game: @update
     assert_redirected_to game_path(assigns(:game))
   end
 
