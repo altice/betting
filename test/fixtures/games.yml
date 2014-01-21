@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  visiting: MyString
+  home: 
+  line: 1
+
+two:
+  visiting: MyString
+  home: 
+  line: 1
